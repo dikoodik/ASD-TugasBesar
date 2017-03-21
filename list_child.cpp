@@ -48,3 +48,25 @@ void insertFirst(List_child &L, address_child P) {
     }
 }
 
+void printInfo(List_child L) {
+    address_child P = first(L);
+    while(P !=NULL) {
+        cout<<"->"<<info(P).id<<endl;
+        cout<<"->"<<info(P).nama_film<<endl;
+        cout<<"->"<<info(P).durasi_film<<endl;
+        cout<<"->"<<info(P).harga_tiket<<endl;
+        P = next(P);
+    }
+}
+
+address_child findElm(List_child L, infotype_child x) {
+    address_child P = first(L);
+    while(P != nil) {
+        if(info(P).id == x.id) {
+            cout<<"Ditemukan"<<endl;
+            return P;
+        }
+        P = next(P);
+    }
+    return NULL;
+}

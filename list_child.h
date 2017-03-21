@@ -37,6 +37,8 @@ struct List_child{
 
 void stuff_child(infotype_child *x);
 address_child alokasi(infotype_child x);
+void printInfo(List_child L);
+address_child findElm(List_child L, infotype_child x);
 void createList(List_child &L);
 void insertFirst(List_child &L, address_child P);
 void insertLast(List_child &L, address_child P);
