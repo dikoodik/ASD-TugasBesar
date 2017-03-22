@@ -10,7 +10,8 @@ using namespace std;
 #define nil NULL
 
 
-struct stuff_parent{
+struct stuff_parent
+{
     int id;
     string nama_bioskop;
     string lokasi_bioskop;
@@ -19,12 +20,14 @@ struct stuff_parent{
 typedef stuff_parent infotype_parent;
 typedef struct elmlist_parent *address_parent;
 
-struct elmlist_parent {
+struct elmlist_parent
+{
     infotype_parent info;
     address_parent next;
 };
 
-struct List_parent{
+struct List_parent
+{
     address_parent first;
 };
 

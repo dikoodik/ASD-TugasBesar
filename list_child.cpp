@@ -1,11 +1,13 @@
 #include "list_child.h"
 
-void createList(List_child &L) {
+void createList(List_child &L)
+{
     first(L) = NULL;
     last(L) = NULL;
 }
 
-void stuff_child(infotype_child *x){
+void stuff_child(infotype_child *x)
+{
     cout<<"ID          : "<<endl;
     cin>>x->id;
     cout<<endl;
@@ -20,7 +22,8 @@ void stuff_child(infotype_child *x){
     cout<<endl;
 }
 
-address_child alokasi(infotype_child x){
+address_child alokasi(infotype_child x)
+{
     address_child P;
 
     P = new elmlist_child;
@@ -37,20 +40,26 @@ address_child alokasi(infotype_child x){
 }
 
 
-void insertFirst(List_child &L, address_child P) {
-    if(first(L) == NULL) {
+void insertFirst(List_child &L, address_child P)
+{
+    if(first(L) == NULL)
+    {
         last(L) = P;
         first(L) = P;
-    } else {
+    }
+    else
+    {
         next(P) = first(L);
         prev(first(L)) = P;
         first(L) = P;
     }
 }
 
-void printInfo(List_child L) {
+void printInfo(List_child L)
+{
     address_child P = first(L);
-    while(P !=NULL) {
+    while(P !=NULL)
+    {
         cout<<"->"<<info(P).id<<endl;
         cout<<"->"<<info(P).nama_film<<endl;
         cout<<"->"<<info(P).durasi_film<<endl;
@@ -59,10 +68,13 @@ void printInfo(List_child L) {
     }
 }
 
-address_child findElm(List_child L, infotype_child x) {
+address_child findElm(List_child L, infotype_child x)
+{
     address_child P = first(L);
-    while(P != nil) {
-        if(info(P).id == x.id) {
+    while(P != nil)
+    {
+        if(info(P).id == x.id)
+        {
             cout<<"Ditemukan"<<endl;
             return P;
         }

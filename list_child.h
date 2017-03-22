@@ -13,7 +13,8 @@ using namespace std;
 #define nil NULL
 
 
-struct stuff_child{
+struct stuff_child
+{
     int id;
     string nama_film;
     double durasi_film;
@@ -23,13 +24,15 @@ typedef stuff_child infotype_child;
 typedef struct elmlist_child *address_child;
 
 
-struct elmlist_child{
+struct elmlist_child
+{
     infotype_child info;
     address_child next;
     address_child prev;
 };
 
-struct List_child{
+struct List_child
+{
     address_child first;
     address_child last;
 };

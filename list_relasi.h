@@ -18,13 +18,15 @@ using namespace std;
 
 typedef struct elmlist_relasi *address_relasi;
 
-struct elmlist_relasi{
+struct elmlist_relasi
+{
     address_relasi next;
     address_child child;
     address_parent parent;
 };
 
-struct List_relasi{
+struct List_relasi
+{
     address_relasi first;
 };
 
