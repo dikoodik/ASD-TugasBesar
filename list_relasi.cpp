@@ -16,8 +16,30 @@ address_relasi alokasi(address_parent P, address_child C)
 
 void insertFirst(List_relasi &L, address_relasi P)
 {
+    if (first(L) == nil){
+        first(L) = P;
+        next(P) = nil;
+    }else{
+
     next(P) = first(L);
     first(L) = P;
+    }
+}
+
+
+void insertLast(List_relasi &L, address_relasi P){
+    if (first(L) == nil){
+        insertFirst(L,P);
+    }else{
+        address_relasi Q = first(L);
+        while (next(Q) != nil){
+            Q = next(Q);
+        }
+            next(Q) = P;
+            next(P) = nil;
+
+    }
+
 }
 
 address_relasi findElm(List_relasi L, address_parent P, address_child C)

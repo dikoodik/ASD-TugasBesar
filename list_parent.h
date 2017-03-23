@@ -15,6 +15,7 @@ struct stuff_parent
     int id;
     string nama_bioskop;
     string lokasi_bioskop;
+    string tipe_studio;
 };
 
 typedef stuff_parent infotype_parent;
@@ -40,4 +41,7 @@ void insertLast(List_parent &L, address_parent P);
 void deleteFirst(List_parent &L, address_parent &P);
 void deleteLast(List_parent &L, address_parent &P);
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P);
+address_parent findElm(List_parent L, infotype_parent x);
+void insertngurut(List_parent &L, infotype_parent x);
+void printInfo(List_parent L);
 #endif // LIST_PARENT_H_INCLUDED

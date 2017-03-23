@@ -19,6 +19,8 @@ struct stuff_child
     string nama_film;
     double durasi_film;
     double harga_tiket;
+    string kategori;
+    string genre;
 };
 typedef stuff_child infotype_child;
 typedef struct elmlist_child *address_child;
@@ -49,4 +51,7 @@ void insertAfter(address_child Prec, address_child P);
 void deleteFirst(List_child &L, address_child &P);
 void deleteLast(List_child &L, address_child &P);
 void deleteAfter(address_child Prec, address_child &P);
+void deletebyIDCHILD(List_child &L, address_child &P);
+void insertngurut(List_child &L, infotype_child x);
+void printsatuan(List_child L, infotype_child x);
 #endif // LIST_CHILD_H_INCLUDED
