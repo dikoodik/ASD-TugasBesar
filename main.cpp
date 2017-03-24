@@ -86,8 +86,13 @@ infotype_parent xx;
 
     insertFirst(LR,fix);
     printInfo(LR);
-//   stuff_parent(&XP);
-//   cariP = find
+
+    cout<<"Child: "<<endl;
+    cin>>x.id;
+    printsatuan(LC,x);
+    cout<<"Parent: "<<endl;
+    cin>>xx.id;
+    printsatuan(LP,xx);
 
 
 

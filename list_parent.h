@@ -44,4 +44,5 @@ void deleteAfter(List_parent &L, address_parent Prec, address_parent &P);
 address_parent findElm(List_parent L, infotype_parent x);
 void insertngurut(List_parent &L, infotype_parent x);
 void printInfo(List_parent L);
+void printsatuan(List_parent L, infotype_parent x);
 #endif // LIST_PARENT_H_INCLUDED

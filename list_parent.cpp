@@ -99,30 +99,30 @@ void insertAfter(List_parent &L, address_parent Prec, address_parent P)
 
 }
 
-void deleteFirst(List_parent &L, address_parent &P)
-{
-    address_parent Q;
-    if (first(L)==NULL)
-        cout<<"No data"<<endl;
-    else if(first(L)->next==first(L))
-    {
-        P = first(L);
-        first(L)=NULL;
-    }
-    else
-    {
-        Q = first(L);
-        P = first(L);
-        while(Q->next!=first(L))
-            Q = Q->next;
-        Q->next=next(P);
-        first(L)=next(P);
-        next(P)=NULL;
+//void deleteFirst(List_parent &L, address_parent &P)
+//{
+//    address_parent Q;
+//    if (first(L)==NULL)
+//        cout<<"No data"<<endl;
+//    else if(first(L)->next==first(L))
+//    {
+//        P = first(L);
+//        first(L)=NULL;
+//    }
+//    else
+//    {
+//        Q = first(L);
+//        P = first(L);
+//        while(Q->next!=first(L))
+//            Q = Q->next;
+//        Q->next=next(P);
+//        first(L)=next(P);
+//        next(P)=NULL;
+//
+//    }
+//
 
-    }
-
-
-}
+//}
 
 
 address_parent findElm(List_parent L, infotype_parent x)
@@ -194,5 +194,32 @@ void insertngurut(List_parent &L, infotype_parent x)
         }
         insertAfter(L,P,P2);
     }
+
+}
+
+void printsatuan(List_parent L, infotype_parent x)
+{
+    address_parent P;
+    if (first(L) != nil)
+    {
+        P = findElm(L,x);
+        if(P != nil)
+        {
+            cout<<"->"<<info(P).id<<endl;
+            cout<<"->"<<info(P).nama_bioskop<<endl;
+            cout<<"->"<<info(P).lokasi_bioskop<<endl;
+            cout<<"->"<<info(P).tipe_studio<<endl;
+
+        }else{
+            cout<<"ID Tidak Ditemukan"<<endl;
+
+        }
+
+    }
+    else
+    {
+        cout<<"List Kosong"<<endl;
+    }
+
 
 }
