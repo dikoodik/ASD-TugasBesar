@@ -34,6 +34,7 @@ struct List_parent
 
 void stuff_parent(infotype_parent *x);
 address_parent alokasi(infotype_parent x);
+void dealokasi(address_parent &P);
 void createList(List_parent &L);
 void insertFirst(List_parent &L, address_parent P);
 void insertAfter(List_parent &L, address_parent Prec, address_parent P);
@@ -45,4 +46,6 @@ address_parent findElm(List_parent L, infotype_parent x);
 void insertngurut(List_parent &L, infotype_parent x);
 void printInfo(List_parent L);
 void printsatuan(List_parent L, infotype_parent x);
+address_parent deletebyIDPARENT(List_parent &L, infotype_parent x);
+
 #endif // LIST_PARENT_H_INCLUDED

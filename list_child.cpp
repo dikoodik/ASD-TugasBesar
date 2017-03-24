@@ -68,12 +68,12 @@ void printInfo(List_child L)
     address_child P = first(L);
     while(P !=NULL)
     {
-        cout<<"->"<<info(P).id<<endl;
-        cout<<"->"<<info(P).nama_film<<endl;
-        cout<<"->"<<info(P).durasi_film<<endl;
-        cout<<"->"<<info(P).harga_tiket<<endl;
-        cout<<"->"<<info(P).kategori<<endl;
-        cout<<"->"<<info(P).genre<<endl;
+        cout<<"ID       : "<<info(P).id<<endl;
+        cout<<"Judul    : "<<info(P).nama_film<<endl;
+        cout<<"Durasi   : "<<info(P).durasi_film<<endl;
+        cout<<"Harga    : "<<info(P).harga_tiket<<endl;
+        cout<<"Kategori : "<<info(P).kategori<<endl;
+        cout<<"Genre    : "<<info(P).genre<<endl;
         cout<<"-----"<<endl;
         P = next(P);
     }
@@ -210,23 +210,30 @@ void deleteAfter(address_child Prec, address_child &P)
     }
 }
 
-void deletebyIDCHILD(List_child &L, address_child &P)
+void deletebyIDCHILD(List_child &L, infotype_child x)
 {
-    address_child P2 = prev(P);
-    if(P == first(L))
+    address_child P,P2;
+    P = findElm(L,x);
+    if(P != nil)
     {
-        deleteFirst(L,P);
-    }
-    else if(P == last(L))
-    {
-        deleteLast(L,P);
+        if(P == first(L))
+        {
+            deleteFirst(L,P);
+        }
+        else if(P == last(L))
+        {
+            deleteLast(L,P);
+        }
+        else
+        {
+            P2 = prev(P);
+            deleteAfter(P2,P);
+        }
     }
     else
     {
-        P2 = prev(P);
-        deleteAfter(P2,P);
+        cout<<"ID Tidak Ada!!"<<endl;
     }
-
 
     //----------------------------------------
 }
@@ -234,45 +241,51 @@ void deletebyIDCHILD(List_child &L, address_child &P)
 void insertngurut(List_child &L, infotype_child x)
 {
 
-    address_child P,P2;
-    P2= alokasi(x);
-    if(first(L) != nil)
+    address_child P,P2,P3;
+    P3 = findElm(L,x);
+    if(P3 == nil)
     {
-        P = first(L);
-    }
-    if(first(L) == nil)
-    {
-        insertFirst(L,P2);
-    }
-    else if(info(P2).id < info(P).id)
-    {
-        insertFirst(L,P2);
-    }
-    else
-    {
+        P2= alokasi(x);
+        if(first(L) != nil)
         {
             P = first(L);
-            while(info(P2).id > info(P).id && next(P) != nil)
+        }
+        if(first(L) == nil)
+        {
+            insertFirst(L,P2);
+        }
+        else if(info(P2).id < info(P).id)
+        {
+            insertFirst(L,P2);
+        }
+        else
+        {
             {
-                P = next(P);
-            }
-            if(info(P2).id > info(P).id)
-            {
-                if(next(P) == nil)
+                P = first(L);
+                while(info(P2).id > info(P).id && next(P) != nil)
                 {
-                    insertLast(L,P2);
+                    P = next(P);
+                }
+                if(info(P2).id > info(P).id)
+                {
+                    if(next(P) == nil)
+                    {
+                        insertLast(L,P2);
+                    }
+                    else
+                    {
+                        insertAfter(P,P2);
+                    }
                 }
                 else
                 {
-                    insertAfter(P,P2);
+                    insertAfter(prev(P),P2);
                 }
             }
-            else
-            {
-                insertAfter(prev(P),P2);
-            }
-        }
 
+        }
+    }else{
+        cout<<"ID Sudah Digunakan"<<endl;
     }
 }
 
@@ -299,4 +312,3 @@ void printsatuan(List_child L, infotype_child x)
         cout<<"List Kosong"<<endl;
     }
 }
-

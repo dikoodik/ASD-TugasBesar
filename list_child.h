@@ -51,7 +51,8 @@ void insertAfter(address_child Prec, address_child P);
 void deleteFirst(List_child &L, address_child &P);
 void deleteLast(List_child &L, address_child &P);
 void deleteAfter(address_child Prec, address_child &P);
-void deletebyIDCHILD(List_child &L, address_child &P);
+void deletebyIDCHILD(List_child &L, infotype_child x);
 void insertngurut(List_child &L, infotype_child x);
 void printsatuan(List_child L, infotype_child x);
+void deletechild(List_child &L, infotype_child x);
 #endif // LIST_CHILD_H_INCLUDED
