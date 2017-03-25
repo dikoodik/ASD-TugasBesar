@@ -6,6 +6,10 @@ void createList(List_child &L)
     last(L) = NULL;
 }
 
+void dealokasi(address_child &P){
+    delete P;
+}
+
 void stuff_child(infotype_child *x)
 {
     cout<<"ID          : "<<endl;
@@ -210,7 +214,7 @@ void deleteAfter(address_child Prec, address_child &P)
     }
 }
 
-void deletebyIDCHILD(List_child &L, infotype_child x)
+address_child deletebyIDCHILD(List_child &L, infotype_child x)
 {
     address_child P,P2;
     P = findElm(L,x);
@@ -219,20 +223,24 @@ void deletebyIDCHILD(List_child &L, infotype_child x)
         if(P == first(L))
         {
             deleteFirst(L,P);
+            return P;
         }
         else if(P == last(L))
         {
             deleteLast(L,P);
+            return P;
         }
         else
         {
             P2 = prev(P);
             deleteAfter(P2,P);
+            return P;
         }
     }
     else
     {
-        cout<<"ID Tidak Ada!!"<<endl;
+
+        return nil;
     }
 
     //----------------------------------------

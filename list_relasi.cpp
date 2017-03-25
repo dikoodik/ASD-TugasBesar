@@ -149,7 +149,8 @@ void deletebyrelasi(List_relasi &L, address_relasi &P)
 void printInfo(List_relasi L)
 {
     address_relasi P = first(L);
-    while(P !=NULL)
+    if(first(L) != nil){
+    while(P != nil)
     {
         cout<<info(parent(P)).id<<endl;
         cout<<info(parent(P)).nama_bioskop<<endl;
@@ -163,7 +164,11 @@ void printInfo(List_relasi L)
         cout<<info(child(P)).harga_tiket<<endl;
         P = next(P);
     }
+    }else{
+        cout<<"List Relasi kosong"<<endl;
+    }
 }
+
 address_relasi searchrelasiparent(List_relasi L, address_parent &P)
 {
     if(first(L) != nil)
@@ -185,8 +190,35 @@ address_relasi searchrelasiparent(List_relasi L, address_parent &P)
     else
     {
         cout<<"List Kosong"<<endl;
+        return nil;
     }
 }
+
+address_relasi searchrelasichild(List_relasi L, address_child P)
+{
+    if(first(L) != nil)
+    {
+        address_relasi PR = first(L);
+        while(next(PR) != nil && child(PR) != P)
+        {
+            PR = next(PR);
+        }
+        if (child(PR) == P)
+        {
+            return PR;
+        }
+        else
+        {
+            return nil;
+        }
+    }
+    else
+    {
+        return nil;
+    }
+
+}
+
 address_relasi searchrelasi(List_relasi L, address_parent Q, address_child Z)
 {
     if(first(L) != nil)

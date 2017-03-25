@@ -127,6 +127,29 @@ void deleteFirst(List_parent &L, address_parent &P)
 
 
 }
+
+void deleteLast(List_parent &L, address_parent &P)
+{
+    address_parent Q;
+    if (first(L)==NULL)
+        cout<<"No data"<<endl;
+    else if(first(L)->next==first(L))
+    {
+        P = first(L);
+        first(L)=NULL;
+    }
+    else
+    {
+        Q = first(L);
+        P = first(L);
+        while(P->next!=first(L))
+            P = P->next;
+        while(Q->next!=P)
+            Q = Q->next;
+        Q->next = first(L);
+        P->next = NULL;
+    }
+}
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
 {
     if(first(L)!=NULL)
@@ -157,36 +180,7 @@ void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
 
 }
 
-address_parent deletebyIDPARENT(List_parent &L, infotype_parent x)
-{
-    address_parent P,P2;
-    P = findElm(L,x);
 
-    if(P!= nil)
-    {
-        if(P == first(L))
-        {
-            deleteFirst(L,P);
-
-        }
-        else
-        {
-            address_parent Q = first(L);
-            while (next(Q) != P)
-            {
-                Q = next(Q);
-            }
-            deleteAfter(L,Q,P);
-        }
-    }
-    else
-    {
-        cout<<"ID Tidak Ditemukan"<<endl;
-    }
-
-
-
-}
 address_parent findElm(List_parent L, infotype_parent x)
 {
     address_parent P;
@@ -300,4 +294,43 @@ void printsatuan(List_parent L, infotype_parent x)
     {
         cout<<"List Kosong"<<endl;
     }
+}
+
+address_parent deletebyIDPARENT(List_parent &L, infotype_parent x)
+{
+    address_parent P,P2;
+    P = findElm(L,x);
+
+    if(P!= nil)
+    {
+        if(P == first(L))
+        {
+            deleteFirst(L,P);
+            return P;
+
+        }
+        else if(next(P) == first(L))
+        {
+            deleteLast(L,P);
+            return P;
+        }
+        else
+        {
+            address_parent Q = first(L);
+            while (next(Q) != P)
+            {
+                Q = next(Q);
+            }
+            deleteAfter(L,Q,P);
+            return P;
+        }
+    }
+    else
+    {
+
+        return nil;
+    }
+
+
+
 }

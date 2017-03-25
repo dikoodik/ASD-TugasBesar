@@ -184,22 +184,68 @@ pilihmenu:
         cout<<"Masukkan ID Bioskop: "<<endl;
         cin>>xx.id;
         carip = deletebyIDPARENT(LP,xx);
-        cout<<info(carip).id;
-//        PR = searchrelasiparent(LR, carip);
-//        if(PR != nil)
-//        {
-//            deletebyrelasi(LR,PR);
-//            deleterelasi(LR,PR);
-//            dealokasi(carip);
-//        }else{
-//            cout<<"List Tidak Berelasi"<<endl;
-//        }
-//}
+        if(carip != nil)
+        {
+            cout<<"Bioskop ID : "<<info(carip).id<<" Berhasil dihapus "<<endl;
+            PR = searchrelasiparent(LR, carip);
+            dealokasi(carip);
+            if(PR != nil)
+            {
+                deletebyrelasi(LR,PR);
+                deleterelasi(LR,PR);
+            }
+            else
+            {
+                cout<<"List Tidak Berelasi"<<endl;
+            }
+        }
+        else
+        {
+            cout<<"ID Tidak Ditemukan"<<endl;
+        }
+        cout<<"Press [ENTER] to continue.."<<endl;
+        getche();
+        goto pilihmenu;
+    case 12:
+        cout<<"Masukkan ID Film: :"<<endl;
+        cin>>x.id;
+        caric = deletebyIDCHILD(LC,x);
+        if (caric != nil)
+        {
+            cout<<"Film ID : "<<info(caric).id<<" berhasil dihapus"<<endl;
+            PR = searchrelasichild(LR,caric);
+            dealokasi(caric);
+            if(PR != nil)
+            {
+                deletebyrelasi(LR,PR);
+                deleterelasi(LR,PR);
+            }
+            else
+            {
+                cout<<"List Tidak Berelasi"<<endl;
+            }
+        }
+        else
+        {
+            cout<<"ID Tidak Ditemukan"<<endl;
+        }
+        cout<<"Press [ENTER] to continue.."<<endl;
+        getche();
+        goto pilihmenu;
+
+    case 0:
+        cout<<"Terima Kasih"<<endl;
+        break;
+    default:
+        cout<<"wrong input"<<endl;
+        cout<<"Press [ENTER] to continue.."<<endl;
+        getche();
+        goto pilihmenu;
+    }
 
 
 }
 
-}
 int main()
 {
 
