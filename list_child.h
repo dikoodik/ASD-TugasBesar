@@ -2,6 +2,8 @@
 #define LIST_CHILD_H_INCLUDED
 
 #include <iostream>
+#include <stdio.h>
+#include <conio.h>
 using namespace std;
 
 #define next(P) P->next
@@ -16,9 +18,9 @@ using namespace std;
 struct stuff_child
 {
     int id;
-    string nama_film;
-    double durasi_film;
-    double harga_tiket;
+    char nama_film[20];
+    string durasi_film;
+    string harga_tiket;
     string kategori;
     string genre;
 };

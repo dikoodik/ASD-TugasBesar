@@ -67,10 +67,14 @@ address_relasi findElm(List_relasi L, address_parent P, address_child C)
     return NULL;
 }
 
-void insertAfter(address_relasi &Prec, address_relasi P)
+void insertAfter(List_relasi L,address_relasi &Prec, address_relasi &P)
 {
-    next(P) = next(Prec);
-    next(Prec) = P;
+    if(first(L) == nil){
+        insertFirst(L,P);
+    }else{
+        next(P) = next(Prec);
+        next(Prec) = P;
+    }
 }
 
 
@@ -114,6 +118,32 @@ void deleteLast(List_relasi &L, address_relasi&P)
 
 }
 
+void deleteAfter(address_relasi Prec, address_relasi &P)
+{
+    List_relasi L;
+    if(first(L)!= nil)
+    {
+        if(next(P) == nil)
+        {
+            deleteLast(L,P);
+        }
+        else if (P == first(L))
+        {
+            deleteFirst(L,P);
+        }
+        else
+        {
+            next(Prec) = next(P);
+            next(P) = nil;
+        }
+
+    }
+    else
+    {
+        cout<<"List Kosong"<<endl;
+    }
+}
+
 void deletebyrelasi(List_relasi &L, address_relasi &P)
 {
     address_relasi Q;
@@ -149,22 +179,25 @@ void deletebyrelasi(List_relasi &L, address_relasi &P)
 void printInfo(List_relasi L)
 {
     address_relasi P = first(L);
-    if(first(L) != nil){
-    while(P != nil)
+    if(first(L) != nil)
     {
-        cout<<info(parent(P)).id<<endl;
-        cout<<info(parent(P)).nama_bioskop<<endl;
-        cout<<info(parent(P)).lokasi_bioskop<<endl;
+        while(P != nil)
+        {
+            cout<<info(parent(P)).id<<endl;
+            cout<<info(parent(P)).nama_bioskop<<endl;
+            cout<<info(parent(P)).lokasi_bioskop<<endl;
 
-        cout<<"<<--->>"<<endl;
+            cout<<"<<--->>"<<endl;
 
-        cout<<info(child(P)).id<<endl;
-        cout<<info(child(P)).nama_film<<endl;
-        cout<<info(child(P)).durasi_film<<endl;
-        cout<<info(child(P)).harga_tiket<<endl;
-        P = next(P);
+            cout<<info(child(P)).id<<endl;
+            cout<<info(child(P)).nama_film<<endl;
+            cout<<info(child(P)).durasi_film<<endl;
+            cout<<info(child(P)).harga_tiket<<endl;
+            P = next(P);
+        }
     }
-    }else{
+    else
+    {
         cout<<"List Relasi kosong"<<endl;
     }
 }
@@ -255,4 +288,29 @@ void deleterelasi(List_relasi &L, address_relasi &P)
 
 }
 
+void sortrelasi(List_relasi &L)
+{
+    address_relasi P,P1,P2;
+    if(first(L) != nil)
+    {
+        P = first(L);
+        while (next(P) != nil)
+        {
+            if(info(parent(P)).id > info(next(parent(P))).id)
+            {
+                P2 = first(L);
+                while(next(P2) != P){
+                    P2 = next(P2);
+                }
+                deleteAfter(P2,P);
+                insertAfter(L,next(P),P);
+            }
+            P = next(P);
+        }
+    }
+    else
+    {
+        cout<<"List Relasi Kosong"<<endl;
+    }
 
+}

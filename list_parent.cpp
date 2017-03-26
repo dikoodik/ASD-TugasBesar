@@ -11,15 +11,14 @@ void dealokasi(address_parent &P)
 
 void stuff_parent(infotype_parent *x)
 {
-    cout<<"ID               : "<<endl;
+    cout<<"ID               : ";
     cin>>x->id;
-    cout<<endl;
-    cout<<"Nama Bioskop     : "<<endl;
+    cout<<"Nama Bioskop     : ";
     cin>>x->nama_bioskop;
-    cout<<endl;
-    cout<<"Lokasi Bioskop   : "<<endl;
+
+    cout<<"Lokasi Bioskop   : ";
     cin>>x->lokasi_bioskop;
-    cout<<"Tipe Studio      : "<<endl;
+    cout<<"Tipe Studio      : ";
     cin>>x->tipe_studio;
 
 }
@@ -267,6 +266,8 @@ void insertngurut(List_parent &L, infotype_parent x)
                 }
             }
         }
+    }else{
+        cout<<"ID Sudah Digunakan"<<endl;
     }
 
 }

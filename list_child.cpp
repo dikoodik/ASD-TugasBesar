@@ -12,20 +12,17 @@ void dealokasi(address_child &P){
 
 void stuff_child(infotype_child *x)
 {
-    cout<<"ID          : "<<endl;
+    cout<<"ID          : ";
     cin>>x->id;
-    cout<<endl;
-    cout<<"Nama Film   : "<<endl;
+    cout<<"Nama Film   : ";
     cin>>x->nama_film;
-    cout<<endl;
-    cout<<"Durasi Film : "<<endl;
+    cout<<"Durasi Film : ";
     cin>>x->durasi_film;
-    cout<<endl;
-    cout<<"Harga Tiket : "<<endl;
+    cout<<"Harga Tiket : ";
     cin>>x->harga_tiket;
-    cout<<"Kategori    : "<<endl;
+    cout<<"Kategori    : ";
     cin>>x->kategori;
-    cout<<"Genre       : "<<endl;
+    cout<<"Genre       : ";
     cin>>x->genre;
 
 }
@@ -40,7 +37,7 @@ address_child alokasi(infotype_child x)
     prev(P) = nil;
 
     info(P).id = x.id;
-    info(P).nama_film = x.nama_film;
+    info(P).nama_film[20] = x.nama_film[20];
     info(P).durasi_film = x.durasi_film;
     info(P).harga_tiket = x.harga_tiket;
     info(P).kategori = x.kategori;
@@ -69,8 +66,10 @@ void insertFirst(List_child &L, address_child P)
 
 void printInfo(List_child L)
 {
+    if(first(L) != nil)
+    {
     address_child P = first(L);
-    while(P !=NULL)
+    while(P != nil)
     {
         cout<<"ID       : "<<info(P).id<<endl;
         cout<<"Judul    : "<<info(P).nama_film<<endl;
@@ -80,6 +79,9 @@ void printInfo(List_child L)
         cout<<"Genre    : "<<info(P).genre<<endl;
         cout<<"-----"<<endl;
         P = next(P);
+    }
+    }else{
+        cout<<"Tidak ada data"<<endl;
     }
 }
 
