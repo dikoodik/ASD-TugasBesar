@@ -237,6 +237,7 @@ void putus_relasi()
                     child(PR) = nil;
                     parent(PR) = nil;
                     deletebyrelasi(LR,PR);
+                    dealokasi(PR);
                     cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" Berhasil Dihapus"<<endl;
                 }
                 else
@@ -281,6 +282,7 @@ void delete_parent()
             }
         }
         deletebyIDPARENT(LP,carip);
+        dealokasi(carip);
     }
     else
     {
@@ -314,6 +316,7 @@ void delete_child()
             }
         }
         deletebyIDCHILD(LC,caric);
+        dealokasi(caric);
     }
     else
     {
