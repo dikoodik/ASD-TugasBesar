@@ -42,7 +42,7 @@ void insertLast(List_relasi &L, address_relasi P);
 void insertAfter(address_relasi Prec, address_relasi P);
 void deleteFirst(List_relasi &L, address_relasi &P);
 void deleteLast(List_relasi &L, address_relasi&P);
-void deleteAfter(address_relasi Prec, address_relasi &P);
+void deleteAfter(List_relasi &L, address_relasi Prec, address_relasi &P);
 address_relasi searchrelasi(List_relasi L, address_parent Q, address_child Z);
 address_relasi searchrelasiparent(List_relasi L, address_parent &P);
 address_relasi searchrelasichild(List_relasi L, address_child P);

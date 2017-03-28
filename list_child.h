@@ -18,11 +18,11 @@ using namespace std;
 struct stuff_child
 {
     int id;
-    char nama_film[20];
+    string nama_film;
     string durasi_film;
     string harga_tiket;
     string kategori;
-    string genre;
+    string jam_tayang;
 };
 typedef stuff_child infotype_child;
 typedef struct elmlist_child *address_child;
@@ -54,7 +54,7 @@ void insertAfter(address_child Prec, address_child P);
 void deleteFirst(List_child &L, address_child &P);
 void deleteLast(List_child &L, address_child &P);
 void deleteAfter(address_child Prec, address_child &P);
-address_child deletebyIDCHILD(List_child &L, infotype_child x);
+void deletebyIDCHILD(List_child &L, address_child &P);
 void insertngurut(List_child &L, infotype_child x);
 void printsatuan(List_child L, infotype_child x);
 void deletechild(List_child &L, infotype_child x);

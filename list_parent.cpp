@@ -11,15 +11,20 @@ void dealokasi(address_parent &P)
 
 void stuff_parent(infotype_parent *x)
 {
-    cout<<"ID               : ";
+    cout<<"ID Studio         : ";
     cin>>x->id;
-    cout<<"Nama Bioskop     : ";
-    cin>>x->nama_bioskop;
 
-    cout<<"Lokasi Bioskop   : ";
-    cin>>x->lokasi_bioskop;
-    cout<<"Tipe Studio      : ";
+    cout<<"Tipe Studio       : ";
     cin>>x->tipe_studio;
+
+    cout<<"Tipe Layar        : ";
+    cin>>x->tipe_layar;
+
+    cout<<"Jumlah Kursi      : ";
+    cin>>x->jumlah_kursi;
+
+    cout<<"Maksimal Film     : ";
+    cin>>x->jumlah_film;
 
 }
 
@@ -32,9 +37,10 @@ address_parent alokasi(infotype_parent x)
     next(P) = nil;
 
     info(P).id = x.id;
-    info(P).nama_bioskop = x.nama_bioskop;
-    info(P).lokasi_bioskop = x.lokasi_bioskop;
     info(P).tipe_studio = x.tipe_studio;
+    info(P).tipe_layar = x.tipe_layar;
+    info(P).jumlah_kursi = x.jumlah_kursi;
+    info(P).jumlah_film = x.jumlah_film;
 
     return P;
 }
@@ -216,10 +222,12 @@ void printInfo(List_parent L)
         P = first(L);
         do
         {
-            cout<<"ID       : "<<info(P).id<<endl;
-            cout<<"Nama     : "<<info(P).nama_bioskop<<endl;
-            cout<<"Lokasi   : "<<info(P).lokasi_bioskop<<endl;
-            cout<<"Tipe     : "<<info(P).tipe_studio<<endl;
+            cout<<"ID Studio        : "<<info(P).id<<endl;
+            cout<<"Tipe Studio      : "<<info(P).tipe_studio<<endl;
+            cout<<"Tipe Layar       : "<<info(P).tipe_layar<<endl;
+            cout<<"Kapasitas        : "<<info(P).jumlah_kursi<<endl;
+            cout<<"Kapasitas Tayang : "<<info(P).jumlah_film<<endl;
+
             cout<<"-----"<<endl;
             P = next(P);
         }
@@ -266,7 +274,9 @@ void insertngurut(List_parent &L, infotype_parent x)
                 }
             }
         }
-    }else{
+    }
+    else
+    {
         cout<<"ID Sudah Digunakan"<<endl;
     }
 
@@ -280,10 +290,11 @@ void printsatuan(List_parent L, infotype_parent x)
         if(P != nil)
         {
 
-            cout<<"ID       : "<<info(P).id<<" Ditemukan"<<endl;
-            cout<<"Nama     : "<<info(P).nama_bioskop<<endl;
-            cout<<"Lokasi   : "<<info(P).lokasi_bioskop<<endl;
-            cout<<"Tipe     : "<<info(P).tipe_studio<<endl;
+            cout<<"ID Studio        : "<<info(P).id<<" Ditemukan"<<endl;
+            cout<<"Tipe Studio      : "<<info(P).tipe_studio<<endl;
+            cout<<"Tipe Layar       : "<<info(P).tipe_layar<<endl;
+            cout<<"Kapasitas        : "<<info(P).jumlah_kursi<<endl;
+            cout<<"Kapasitas Tayang : "<<info(P).jumlah_film<<endl;
 
         }
         else
@@ -297,23 +308,19 @@ void printsatuan(List_parent L, infotype_parent x)
     }
 }
 
-address_parent deletebyIDPARENT(List_parent &L, infotype_parent x)
+void deletebyIDPARENT(List_parent &L, address_parent &P)
 {
-    address_parent P,P2;
-    P = findElm(L,x);
 
-    if(P!= nil)
+    if(first(L) != nil)
     {
         if(P == first(L))
         {
             deleteFirst(L,P);
-            return P;
 
         }
         else if(next(P) == first(L))
         {
             deleteLast(L,P);
-            return P;
         }
         else
         {
@@ -323,15 +330,11 @@ address_parent deletebyIDPARENT(List_parent &L, infotype_parent x)
                 Q = next(Q);
             }
             deleteAfter(L,Q,P);
-            return P;
         }
     }
     else
     {
 
-        return nil;
+        cout<<"List Kosong"<<endl;
     }
-
-
-
 }

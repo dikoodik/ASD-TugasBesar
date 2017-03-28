@@ -14,14 +14,15 @@ infotype_child x;
 List_child LC;
 
 address_parent PP = nil;
-address_parent cariP;
+
 infotype_parent XP;
 infotype_parent xx;
 List_parent LP;
 
 address_relasi PR = nil;
 List_relasi LR;
-
+address_relasi deleteP;
+address_relasi deleteC;
 
 
 address_child caric;
@@ -63,6 +64,7 @@ void menupilihan()
 
         cout<<"Pilih    : ";
         cin>>pil;
+        cout<<endl;
         switch(pil)
         {
         case 1:
@@ -102,11 +104,13 @@ void menupilihan()
             delete_child();
             break;
         case 13:
-            sortrelasi(LR);
-            printInfo(LR);
+            //**belom fix
+//            sortrelasi(LR);
+//            printInfo(LR);
             break;
         case 0:
             cout<<"Terima Kasih"<<endl;
+            cout<<"Riandi Kartiko - 1301164300"<<endl;
             break;
         default:
             cout<<"wrong input"<<endl;
@@ -135,8 +139,8 @@ void view_child()
 
 void insert_parent()
 {
-        stuff_parent(&XP);
-        insertngurut(LP,XP);
+    stuff_parent(&XP);
+    insertngurut(LP,XP);
 
 }
 
@@ -147,37 +151,37 @@ void view_parent()
 
 void search_parent()
 {
-    cout<<"Masukkan ID Bioskop: "<<endl;
-            cin>>xx.id;
-            printsatuan(LP,xx);
+    cout<<"Masukkan ID Bioskop: ";
+    cin>>xx.id;
+    printsatuan(LP,xx);
 }
 
 void search_child()
 {
-    cout<<"Masukkan ID Film: :"<<endl;
-            cin>>x.id;
-            printsatuan(LC,x);
+    cout<<"Masukkan ID Film: :";
+    cin>>x.id;
+    printsatuan(LC,x);
 }
 
 void relasikan()
 {
     cout<<"Merelasikan Bioskop dengan Film"<<endl;
-            cout<<"Masukkan ID Bioskop: ";
-            cin>>xx.id;
-            cout<<"Masukkan ID Film: :";
-            cin>>x.id;
-            carip = findElm(LP,xx);
-            caric = findElm(LC,x);
-            if(carip != nil && caric != nil)
-            {
-                PR = alokasi(carip,caric);
-                insertLast(LR,PR);
-                cout<<"ID Bioskop : "<<info(carip).id<<" dengan id Film : "<<info(caric).id<<" berhasil direlasikan "<<endl;
-            }
-            else
-            {
-                cout<<"ID Film / Bioskop Tidak Ditemukan!!"<<endl;
-            }
+    cout<<"Masukkan ID Bioskop: ";
+    cin>>xx.id;
+    cout<<"Masukkan ID Film: :";
+    cin>>x.id;
+    carip = findElm(LP,xx);
+    caric = findElm(LC,x);
+    if(carip != nil && caric != nil)
+    {
+        PR = alokasi(carip,caric);
+        insertLast(LR,PR);
+        cout<<"ID Bioskop : "<<info(carip).id<<" dengan id Film : "<<info(caric).id<<" berhasil direlasikan "<<endl;
+    }
+    else
+    {
+        cout<<"ID Film / Bioskop Tidak Ditemukan!!"<<endl;
+    }
 }
 
 void view_relasi()
@@ -187,109 +191,131 @@ void view_relasi()
 
 void search_relasi()
 {
-    cout<<"Masukkan ID Bioskop: "<<endl;
-            cin>>xx.id;
-            cout<<"Masukkan ID Film: :"<<endl;
-            cin>>x.id;
-            carip = findElm(LP,xx);
-            caric = findElm(LC,x);
-            if(carip != nil && caric != nil)
-            {
-                PR=searchrelasi(LR,carip,caric);
-                if(PR != nil)
-                {
-                    cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" berelasi"<<endl;
-                }
-                else
-                {
-                    cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" tidak berelasi"<<endl;
-                }
-            }
-            else
-            {
-                cout<<"ID Bioskop / Film Tidak Ditemukan"<<endl;
-            }
+    cout<<"Masukkan ID Bioskop: ";
+    cin>>xx.id;
+    cout<<"Masukkan ID Film: :";
+    cin>>x.id;
+    carip = findElm(LP,xx);
+    caric = findElm(LC,x);
+    if(carip != nil && caric != nil)
+    {
+        PR=searchrelasi(LR,carip,caric);
+        if(PR != nil)
+        {
+            cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" berelasi"<<endl;
+        }
+        else
+        {
+            cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" tidak berelasi"<<endl;
+        }
+    }
+    else
+    {
+        cout<<"ID Bioskop / Film Tidak Ditemukan"<<endl;
+    }
 
 }
 
 void putus_relasi()
 {
-    cout<<"Masukkan ID Bioskop: "<<endl;
-            cin>>xx.id;
-            cout<<"Masukkan ID Film: :"<<endl;
-            cin>>x.id;
-            carip = findElm(LP,xx);
-            caric = findElm(LC,x);
-            if(carip != nil && caric != nil)
+    cout<<"Masukkan ID Bioskop: ";
+    cin>>xx.id;
+    cout<<"Masukkan ID Film: :";
+    cin>>x.id;
+    carip = findElm(LP,xx);
+    caric = findElm(LC,x);
+    if(carip != nil && caric != nil)
+    {
+        if(first(LR) != nil)
+        {
+            PR = first(LR);
+            while(PR != nil)
             {
-                PR=searchrelasi(LR,carip,caric);
-                if(PR != nil)
+                if(parent(PR) == carip && child(PR) == caric)
                 {
-                    cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" berelasi"<<endl;
+                    child(PR) = nil;
+                    parent(PR) = nil;
                     deletebyrelasi(LR,PR);
-                    deleterelasi(LR,PR);
-                    cout<<"Relasi Berhasil Dihapus"<<endl;
+                    cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" Berhasil Dihapus"<<endl;
                 }
                 else
                 {
-                    cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" tidak berelasi"<<endl;
+                    PR = next(PR);
                 }
             }
-            else
-            {
-                cout<<"ID Bioskop / Film Tidak Ditemukan"<<endl;
-            }
-}
+        }
+        else
+        {
+            cout<<"List Relasi Kosong"<<endl;
+        }
+    }
+    else
+    {
+        cout<<"ID Bioskop / ID Film Tidak Ditemukan"<<endl;
+    }
 
+}
 void delete_parent()
 {
-    cout<<"Masukkan ID Bioskop: "<<endl;
-            cin>>xx.id;
-            carip = deletebyIDPARENT(LP,xx);
-            if(carip != nil)
+    cout<<"Masukkan ID Bioskop: ";
+    cin>>xx.id;
+    carip = findElm(LP,xx);
+
+    if(carip != nil)
+    {
+        PR = first(LR);
+        while (PR != nil)
+        {
+            if(parent(PR) == carip)
             {
-                cout<<"Bioskop ID : "<<info(carip).id<<" Berhasil dihapus "<<endl;
-                PR = searchrelasiparent(LR, carip);
-                dealokasi(carip);
-                if(PR != nil)
-                {
-                    deletebyrelasi(LR,PR);
-                    deleterelasi(LR,PR);
-                }
-                else
-                {
-                    cout<<"List Tidak Berelasi"<<endl;
-                }
+                deleteP = PR;
+                PR = next(PR);
+                parent(deleteP) = nil;
+                child(deleteP) = nil;
+                deletebyrelasi(LR,deleteP);
             }
             else
             {
-                cout<<"ID Tidak Ditemukan"<<endl;
+                PR = next(PR);
             }
+        }
+        deletebyIDPARENT(LP,carip);
+    }
+    else
+    {
+        cout<<"ID Tidak Ditemukan"<<endl;
+    }
 }
 
 void delete_child()
 {
-    cout<<"Masukkan ID Film: :"<<endl;
-            cin>>x.id;
-            caric = deletebyIDCHILD(LC,x);
-            if (caric != nil)
+    cout<<"Masukkan ID Film: ";
+    cin>>x.id;
+    caric = findElm(LC,x);
+
+    if(caric != nil)
+    {
+        PR = first(LR);
+        while (PR != nil)
+        {
+            if(child(PR) == caric)
             {
-                cout<<"Film ID : "<<info(caric).id<<" berhasil dihapus"<<endl;
-                PR = searchrelasichild(LR,caric);
-                dealokasi(caric);
-                if(PR != nil)
-                {
-                    deletebyrelasi(LR,PR);
-                    deleterelasi(LR,PR);
-                }
-                else
-                {
-                    cout<<"List Tidak Berelasi"<<endl;
-                }
+                deleteC = PR;
+                PR = next(PR);
+                parent(deleteC) = nil;
+                child(deleteC) = nil;
+                deletebyrelasi(LR,deleteC);
+
             }
             else
             {
-                cout<<"ID Tidak Ditemukan"<<endl;
+                PR = next(PR);
             }
-
+        }
+        deletebyIDCHILD(LC,caric);
+    }
+    else
+    {
+        cout<<"ID Tidak Ditemukan"<<endl;
+    }
 }

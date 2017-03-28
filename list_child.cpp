@@ -22,8 +22,8 @@ void stuff_child(infotype_child *x)
     cin>>x->harga_tiket;
     cout<<"Kategori    : ";
     cin>>x->kategori;
-    cout<<"Genre       : ";
-    cin>>x->genre;
+    cout<<"Jam Tayang  : ";
+    cin>>x->jam_tayang;
 
 }
 
@@ -41,7 +41,7 @@ address_child alokasi(infotype_child x)
     info(P).durasi_film = x.durasi_film;
     info(P).harga_tiket = x.harga_tiket;
     info(P).kategori = x.kategori;
-    info(P).genre = x.genre;
+    info(P).jam_tayang = x.jam_tayang;
 
     return P;
 }
@@ -76,7 +76,7 @@ void printInfo(List_child L)
         cout<<"Durasi   : "<<info(P).durasi_film<<endl;
         cout<<"Harga    : "<<info(P).harga_tiket<<endl;
         cout<<"Kategori : "<<info(P).kategori<<endl;
-        cout<<"Genre    : "<<info(P).genre<<endl;
+        cout<<"Jam      : "<<info(P).jam_tayang<<endl;
         cout<<"-----"<<endl;
         P = next(P);
     }
@@ -216,33 +216,32 @@ void deleteAfter(address_child Prec, address_child &P)
     }
 }
 
-address_child deletebyIDCHILD(List_child &L, infotype_child x)
+void deletebyIDCHILD(List_child &L, address_child &P)
 {
-    address_child P,P2;
-    P = findElm(L,x);
-    if(P != nil)
+address_child P2;
+    if(first(L) != nil)
     {
         if(P == first(L))
         {
             deleteFirst(L,P);
-            return P;
+
         }
         else if(P == last(L))
         {
             deleteLast(L,P);
-            return P;
+
         }
         else
         {
             P2 = prev(P);
             deleteAfter(P2,P);
-            return P;
+
         }
     }
     else
     {
 
-        return nil;
+        cout<<"List Kosong"<<endl;
     }
 
     //----------------------------------------
@@ -307,10 +306,13 @@ void printsatuan(List_child L, infotype_child x)
         P = findElm(L,x);
         if(P != nil)
         {
-            cout<<info(P).id<<endl;
-            cout<<info(P).nama_film<<endl;
-            cout<<info(P).durasi_film<<endl;
-            cout<<info(P).harga_tiket<<endl;
+        cout<<"ID       : "<<info(P).id<<endl;
+        cout<<"Judul    : "<<info(P).nama_film<<endl;
+        cout<<"Durasi   : "<<info(P).durasi_film<<endl;
+        cout<<"Harga    : "<<info(P).harga_tiket<<endl;
+        cout<<"Kategori : "<<info(P).kategori<<endl;
+        cout<<"Jam      : "<<info(P).jam_tayang<<endl;
+        cout<<"-----"<<endl;
         }
         else
         {

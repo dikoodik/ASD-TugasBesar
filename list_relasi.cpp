@@ -69,9 +69,13 @@ address_relasi findElm(List_relasi L, address_parent P, address_child C)
 
 void insertAfter(List_relasi L,address_relasi &Prec, address_relasi &P)
 {
-    if(first(L) == nil){
+    if(first(L) == nil)
+    {
+
         insertFirst(L,P);
-    }else{
+    }
+    else
+    {
         next(P) = next(Prec);
         next(Prec) = P;
     }
@@ -84,15 +88,22 @@ void deleteFirst(List_relasi &L, address_relasi &P)
     {
         if(next(first(L)) == nil)
         {
+
             P = first(L);
+
             first(L) = nil;
         }
         else
         {
             P = first(L);
+
             first(L) = next(P);
             next(P) = nil;
         }
+    }
+    else
+    {
+        cout<<"List Kosong"<<endl;
     }
 }
 
@@ -118,9 +129,8 @@ void deleteLast(List_relasi &L, address_relasi&P)
 
 }
 
-void deleteAfter(address_relasi Prec, address_relasi &P)
+void deleteAfter(List_relasi &L, address_relasi Prec, address_relasi &P)
 {
-    List_relasi L;
     if(first(L)!= nil)
     {
         if(next(P) == nil)
@@ -147,27 +157,29 @@ void deleteAfter(address_relasi Prec, address_relasi &P)
 void deletebyrelasi(List_relasi &L, address_relasi &P)
 {
     address_relasi Q;
+
     if(first(L) != nil)
     {
         if(P == first(L))
         {
             deleteFirst(L,P);
+
         }
-        else
+        else if(next(P) == nil )
         {
-            Q = first(L);
-            while(next(Q) != P)
-                Q = next(Q);
-        }
-        if(next(Q) == P && next(P) == nil)
-        {
+
             deleteLast(L,P);
         }
         else
         {
-            next(Q) = next(P);
-            next(P) = nil;
+            Q = first(L);
+            while (next(Q) != P)
+            {
+                Q = next(Q);
+            }
+            deleteAfter(L,Q,P);
         }
+
     }
     else
     {
@@ -183,16 +195,23 @@ void printInfo(List_relasi L)
     {
         while(P != nil)
         {
-            cout<<info(parent(P)).id<<endl;
-            cout<<info(parent(P)).nama_bioskop<<endl;
-            cout<<info(parent(P)).lokasi_bioskop<<endl;
+            cout<<"ID Studio        : "<<info(parent(P)).id<<endl;
+            cout<<"Tipe Studio      : "<<info(parent(P)).tipe_studio<<endl;
+            cout<<"Tipe Layar       : "<<info(parent(P)).tipe_layar<<endl;
+            cout<<"Kapasitas        : "<<info(parent(P)).jumlah_kursi<<endl;
+            cout<<"Kapasitas Tayang : "<<info(parent(P)).jumlah_film<<endl;
 
             cout<<"<<--->>"<<endl;
 
-            cout<<info(child(P)).id<<endl;
-            cout<<info(child(P)).nama_film<<endl;
-            cout<<info(child(P)).durasi_film<<endl;
-            cout<<info(child(P)).harga_tiket<<endl;
+            cout<<"ID Film          : "<<info(child(P)).id<<endl;
+            cout<<"Nama Film        : "<<info(child(P)).nama_film<<endl;
+            cout<<"Durasi           : "<<info(child(P)).durasi_film<<endl;
+            cout<<"Harga Tiket      : "<<info(child(P)).harga_tiket<<endl;
+            cout<<"Kategori         : "<<info(child(P)).kategori<<endl;
+            cout<<"Jam Tayang       : "<<info(child(P)).jam_tayang<<endl;
+
+            cout<<"Data Selanjutmya"<<endl;
+            cout<<endl;
             P = next(P);
         }
     }
@@ -290,27 +309,39 @@ void deleterelasi(List_relasi &L, address_relasi &P)
 
 void sortrelasi(List_relasi &L)
 {
-    address_relasi P,P1,P2;
+    address_relasi P,P2,P3,P4;
+
     if(first(L) != nil)
     {
         P = first(L);
-        while (next(P) != nil)
+        while(next(P) = nil)
         {
             if(info(parent(P)).id > info(next(parent(P))).id)
             {
-                P2 = first(L);
-                while(next(P2) != P){
-                    P2 = next(P2);
-                }
-                deleteAfter(P2,P);
-                insertAfter(L,next(P),P);
-            }
-            P = next(P);
-        }
-    }
-    else
-    {
-        cout<<"List Relasi Kosong"<<endl;
-    }
+                    P2 = P;
+                    P3 = next(P);
+                    P = next(P);
+                    deleteFirst(L,P2);
+                    insertAfter(L,P3,P2);
+//                }else if(next(P) != nil)
+//                {
+//                    P2= P;
+//                    P4 = next(P);
+//                    P = next(next(P));
+//                    P3 = first(L);
+//                    while (next(P3) != P2)
+//                    {
+//                        P3 = next(P3);
+//                    }
+//                    deleteAfter(L,P3,P2);
+//                    insertAfter(L,P4,P2);
+//                }
 
+            }else{
+                P = next(P);
+            }
+    }
+}else{
+    cout<<"List Kosong"<<endl;
+}
 }

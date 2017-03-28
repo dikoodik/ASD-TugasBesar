@@ -13,9 +13,10 @@ using namespace std;
 struct stuff_parent
 {
     int id;
-    string nama_bioskop;
-    string lokasi_bioskop;
     string tipe_studio;
+    string tipe_layar;
+    string jumlah_kursi;
+    string jumlah_film;
 };
 
 typedef stuff_parent infotype_parent;
@@ -46,6 +47,6 @@ address_parent findElm(List_parent L, infotype_parent x);
 void insertngurut(List_parent &L, infotype_parent x);
 void printInfo(List_parent L);
 void printsatuan(List_parent L, infotype_parent x);
-address_parent deletebyIDPARENT(List_parent &L, infotype_parent x);
+void deletebyIDPARENT(List_parent &L, address_parent &P);
 
 #endif // LIST_PARENT_H_INCLUDED
