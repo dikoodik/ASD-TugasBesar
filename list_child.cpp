@@ -77,8 +77,10 @@ void printInfo(List_child L)
         cout<<"Harga    : "<<info(P).harga_tiket<<endl;
         cout<<"Kategori : "<<info(P).kategori<<endl;
         cout<<"Jam      : "<<info(P).jam_tayang<<endl;
+        cout<<endl;
         cout<<"-----"<<endl;
         P = next(P);
+        cout<<endl;
     }
     }else{
         cout<<"Tidak ada data"<<endl;

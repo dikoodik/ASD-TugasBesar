@@ -200,16 +200,16 @@ void printInfo(List_relasi L)
             cout<<"Tipe Layar       : "<<info(parent(P)).tipe_layar<<endl;
             cout<<"Kapasitas        : "<<info(parent(P)).jumlah_kursi<<endl;
             cout<<"Kapasitas Tayang : "<<info(parent(P)).jumlah_film<<endl;
-
+            cout<<endl;
             cout<<"<<--->>"<<endl;
-
+            cout<<endl;
             cout<<"ID Film          : "<<info(child(P)).id<<endl;
             cout<<"Nama Film        : "<<info(child(P)).nama_film<<endl;
             cout<<"Durasi           : "<<info(child(P)).durasi_film<<endl;
             cout<<"Harga Tiket      : "<<info(child(P)).harga_tiket<<endl;
             cout<<"Kategori         : "<<info(child(P)).kategori<<endl;
             cout<<"Jam Tayang       : "<<info(child(P)).jam_tayang<<endl;
-
+            cout<<endl;
             cout<<"Data Selanjutmya"<<endl;
             cout<<endl;
             P = next(P);
@@ -314,34 +314,55 @@ void sortrelasi(List_relasi &L)
     if(first(L) != nil)
     {
         P = first(L);
-        while(next(P) = nil)
+        if(next(first(L)) != nil)
         {
-            if(info(parent(P)).id > info(next(parent(P))).id)
+            if(info(parent(P)).id > info(next(parent(P))).id )
             {
-                    P2 = P;
-                    P3 = next(P);
-                    P = next(P);
-                    deleteFirst(L,P2);
-                    insertAfter(L,P3,P2);
-//                }else if(next(P) != nil)
-//                {
-//                    P2= P;
-//                    P4 = next(P);
-//                    P = next(next(P));
-//                    P3 = first(L);
-//                    while (next(P3) != P2)
-//                    {
-//                        P3 = next(P3);
-//                    }
-//                    deleteAfter(L,P3,P2);
-//                    insertAfter(L,P4,P2);
-//                }
-
-            }else{
+                P2 = next(P);
+                P3 = P;
                 P = next(P);
+                deleteFirst(L,P3);
+                insertAfter(L,P2,P3);
             }
+            else
+            {
+                while(next(P) != nil)
+                {
+                    if(info(parent(P)).id > info(next(parent(P))).id)
+                    {
+                        P2 = P;
+                        P4 = next(P);
+                        P = next(next(P));
+                        P3 = first(L);
+                        while (next(P3) != P)
+                        {
+                            P3 = next(P3);
+                        }
+                        deleteAfter(L,P3,P2);
+                        insertAfter(L,P4,P2);
+                    }
+                    else if(info(parent(P)).id < info(next(parent(P))).id)
+                    {
+                        P2 = next(P);
+                        P4 = P;
+                        P3 = first(L);
+
+                        P = next(next(P));
+
+                        while(next(P3) != P4)
+                        {
+                            P3 = next(P3);
+                        }
+                        deleteAfter(L,P3,P4);
+                        insertAfter(L,P2,P4);
+                    }
+                }
+            }
+        }
+    }else
+    {
+        cout<<"List Kosong"<<endl;
     }
-}else{
-    cout<<"List Kosong"<<endl;
-}
+
+
 }

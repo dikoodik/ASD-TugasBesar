@@ -104,9 +104,8 @@ void menupilihan()
             delete_child();
             break;
         case 13:
-            //**belom fix
-//            sortrelasi(LR);
-//            printInfo(LR);
+            sortrelasi(LR);
+            printInfo(LR);
             break;
         case 0:
             cout<<"Terima Kasih"<<endl;
@@ -166,9 +165,9 @@ void search_child()
 void relasikan()
 {
     cout<<"Merelasikan Bioskop dengan Film"<<endl;
-    cout<<"Masukkan ID Bioskop: ";
+    cout<<"Masukkan ID Bioskop  : ";
     cin>>xx.id;
-    cout<<"Masukkan ID Film: :";
+    cout<<"Masukkan ID Film:    :";
     cin>>x.id;
     carip = findElm(LP,xx);
     caric = findElm(LC,x);
