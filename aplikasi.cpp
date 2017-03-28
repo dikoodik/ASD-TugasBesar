@@ -109,7 +109,9 @@ void menupilihan()
             break;
         case 0:
             cout<<"Terima Kasih"<<endl;
-            cout<<"Riandi Kartiko - 1301164300"<<endl;
+            cout<<"RIANDI KARTIKO           - 1301164300"<<endl;
+            cout<<"RIFKI MIFATHUR SUTOMO    - 1301164225"<<endl;
+            cout<<"MOHAMMAD IZZAULHAQ HUDA  - 1301160565"<<endl;
             break;
         default:
             cout<<"wrong input"<<endl;
