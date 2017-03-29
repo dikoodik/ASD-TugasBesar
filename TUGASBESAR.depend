@@ -6,27 +6,27 @@
 	<iostream>
 	<conio.h>
 
-1490715278 source:c:\users\diko\documents\github\asd-tugasbesar\list_child.cpp
+1490804436 source:c:\users\diko\documents\github\asd-tugasbesar\list_child.cpp
 	"list_child.h"
 
-1490712731 c:\users\diko\documents\github\asd-tugasbesar\list_child.h
+1490804436 c:\users\diko\documents\github\asd-tugasbesar\list_child.h
 	<iostream>
 	<stdio.h>
 	<conio.h>
 
-1490712480 source:c:\users\diko\documents\github\asd-tugasbesar\list_parent.cpp
+1490804436 source:c:\users\diko\documents\github\asd-tugasbesar\list_parent.cpp
 	"list_parent.h"
 
-1490711954 c:\users\diko\documents\github\asd-tugasbesar\list_parent.h
+1490804436 c:\users\diko\documents\github\asd-tugasbesar\list_parent.h
 	<iostream>
 
-1490698624 c:\users\diko\documents\github\asd-tugasbesar\list_relasi.h
+1490804436 c:\users\diko\documents\github\asd-tugasbesar\list_relasi.h
 	"list_relasi.h"
 	"list_child.h"
 	"list_parent.h"
 	<iostream>
 
-1490715278 source:c:\users\diko\documents\github\asd-tugasbesar\list_relasi.cpp
+1490804436 source:c:\users\diko\documents\github\asd-tugasbesar\list_relasi.cpp
 	"list_relasi.h"
 
 1490498597 source:c:\users\diko\documents\github\asd-tugasbesar\menu.cpp
@@ -43,7 +43,7 @@
 	<iostream>
 	<conio.h>
 
-1490713758 source:c:\users\diko\documents\github\asd-tugasbesar\aplikasi.cpp
+1490804436 source:c:\users\diko\documents\github\asd-tugasbesar\aplikasi.cpp
 	<iostream>
 	<conio.h>
 	"list_relasi.h"
@@ -51,7 +51,7 @@
 	"list_parent.h"
 	"aplikasi.h"
 
-1490522187 c:\users\diko\documents\github\asd-tugasbesar\aplikasi.h
+1490804436 c:\users\diko\documents\github\asd-tugasbesar\aplikasi.h
 	"list_relasi.h"
 	<iostream>
 	<stdio.h>

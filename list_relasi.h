@@ -1,3 +1,7 @@
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
 #ifndef LIST_RELASI_H_INCLUDED
 #define LIST_RELASI_H_INCLUDED
 
@@ -46,5 +50,6 @@ void deleteAfter(List_relasi &L, address_relasi Prec, address_relasi &P);
 address_relasi searchrelasi(List_relasi L, address_parent Q, address_child Z);
 address_relasi searchrelasiparent(List_relasi L, address_parent &P);
 address_relasi searchrelasichild(List_relasi L, address_child P);
+address_relasi findmin(List_parent &L);
 void sortrelasi(List_relasi &L);
 #endif // LIST_RELASI_H_INCLUDED

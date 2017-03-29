@@ -2,16 +2,28 @@
 
 void createList(List_child &L)
 {
+/**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+**/
+
     first(L) = NULL;
     last(L) = NULL;
 }
 
 void dealokasi(address_child &P){
+    /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     delete P;
 }
 
 void stuff_child(infotype_child *x)
 {
+    /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     cout<<"ID          : ";
     cin>>x->id;
     cout<<"Nama Film   : ";
@@ -29,6 +41,10 @@ void stuff_child(infotype_child *x)
 
 address_child alokasi(infotype_child x)
 {
+    /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     address_child P;
 
     P = new elmlist_child;
@@ -49,6 +65,10 @@ address_child alokasi(infotype_child x)
 
 void insertFirst(List_child &L, address_child P)
 {
+        /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     if(first(L) == NULL)
     {
         last(L) = P;
@@ -66,6 +86,10 @@ void insertFirst(List_child &L, address_child P)
 
 void printInfo(List_child L)
 {
+        /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     if(first(L) != nil)
     {
     address_child P = first(L);
@@ -89,6 +113,9 @@ void printInfo(List_child L)
 
 address_child findElm(List_child L, infotype_child x)
 {
+    /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
 
     address_child P = first(L);
 
@@ -109,6 +136,10 @@ address_child findElm(List_child L, infotype_child x)
 
 void insertLast(List_child &L, address_child P)
 {
+       /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     if (first(L) == nil)
     {
         insertFirst(L,P);
@@ -124,6 +155,10 @@ void insertLast(List_child &L, address_child P)
 
 void insertAfter(address_child Prec, address_child P)
 {
+           /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     List_child L;
     if(first(L) == nil)
     {
@@ -145,6 +180,10 @@ void insertAfter(address_child Prec, address_child P)
 
 void deleteFirst(List_child &L, address_child &P)
 {
+           /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     if (first(L) != nil)
     {
         P = first(L);
@@ -169,6 +208,10 @@ void deleteFirst(List_child &L, address_child &P)
 
 void deleteLast(List_child &L, address_child &P)
 {
+           /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     if(first(L) != nil)
     {
         if(first(L) == last(L))
@@ -188,6 +231,10 @@ void deleteLast(List_child &L, address_child &P)
 
 void deleteAfter(address_child Prec, address_child &P)
 {
+           /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     List_child L;
     if(first(L)!= nil)
     {
@@ -220,6 +267,10 @@ void deleteAfter(address_child Prec, address_child &P)
 
 void deletebyIDCHILD(List_child &L, address_child &P)
 {
+    /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
 address_child P2;
     if(first(L) != nil)
     {
@@ -251,6 +302,9 @@ address_child P2;
 
 void insertngurut(List_child &L, infotype_child x)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
 
     address_child P,P2,P3;
     P3 = findElm(L,x);
@@ -302,6 +356,10 @@ void insertngurut(List_child &L, infotype_child x)
 
 void printsatuan(List_child L, infotype_child x)
 {
+           /**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+    **/
+
     address_child P;
     if(first(L) != nil)
     {

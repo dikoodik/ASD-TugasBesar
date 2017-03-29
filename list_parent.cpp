@@ -2,15 +2,27 @@
 
 void createList(List_parent &L)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     first(L) = nil;
 }
 void dealokasi(address_parent &P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     delete P;
 }
 
 void stuff_parent(infotype_parent *x)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     cout<<"ID Studio         : ";
     cin>>x->id;
 
@@ -30,6 +42,10 @@ void stuff_parent(infotype_parent *x)
 
 address_parent alokasi(infotype_parent x)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent P;
 
     P = new elmlist_parent;
@@ -48,11 +64,11 @@ address_parent alokasi(infotype_parent x)
 void insertFirst(List_parent &L, address_parent P)
 {
     /**
-    * IS : List_parent L mungkin kosong
-    * FS : elemen yang ditunjuk P menjadi elemen pertama pada List_parent L
-    *      next dari last elemen menunjuk ke first elemen
-    */
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent Q;
+
     if(first(L) == NULL)
     {
         first(L) = P;
@@ -73,7 +89,12 @@ void insertFirst(List_parent &L, address_parent P)
 
 void insertLast(List_parent &L, address_parent P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent Q;
+
     if (first(L)==NULL)
         insertFirst(L,P);
     else
@@ -82,13 +103,17 @@ void insertLast(List_parent &L, address_parent P)
         while(next(Q) !=first(L))
             Q = next(Q);
         next(Q) = P;
-        next(P)=first(L);
+        next(P)= first(L);
     }
 
 }
 
 void insertAfter(List_parent &L, address_parent Prec, address_parent P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     if(Prec!=NULL)
     {
         if(next(Prec)==first(L))
@@ -110,6 +135,10 @@ void insertAfter(List_parent &L, address_parent Prec, address_parent P)
 
 void deleteFirst(List_parent &L, address_parent &P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent Q;
     if (first(L)==NULL)
         cout<<"No data"<<endl;
@@ -135,6 +164,10 @@ void deleteFirst(List_parent &L, address_parent &P)
 
 void deleteLast(List_parent &L, address_parent &P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent Q;
     if (first(L)==NULL)
         cout<<"No data"<<endl;
@@ -157,9 +190,13 @@ void deleteLast(List_parent &L, address_parent &P)
 }
 void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     if(first(L)!=NULL)
     {
-        if(Prec!=NULL)
+        if(Prec!= NULL)
         {
             if(next(Prec)==first(L))
             {
@@ -174,12 +211,12 @@ void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
         }
         else
         {
-            cout<<"gagal delete after"<<endl;
+            cout<<"Gagal Delete"<<endl;
         }
     }
     else
     {
-        cout<<"gagal delete after, list kosong"<<endl;
+        cout<<"List Kosong"<<endl;
     }
 
 
@@ -188,6 +225,10 @@ void deleteAfter(List_parent &L, address_parent Prec, address_parent &P)
 
 address_parent findElm(List_parent L, infotype_parent x)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent P;
 
 
@@ -212,6 +253,10 @@ address_parent findElm(List_parent L, infotype_parent x)
 
 void printInfo(List_parent L)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent P;
     if (first(L) == nil)
     {
@@ -238,6 +283,9 @@ void printInfo(List_parent L)
 
 void insertngurut(List_parent &L, infotype_parent x)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
     address_parent P,P1,P2;
     P1 = findElm(L,x);
     if(P1 == nil)
@@ -283,6 +331,10 @@ void insertngurut(List_parent &L, infotype_parent x)
 }
 void printsatuan(List_parent L, infotype_parent x)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     address_parent P;
     if (first(L) != nil)
     {
@@ -310,6 +362,10 @@ void printsatuan(List_parent L, infotype_parent x)
 
 void deletebyIDPARENT(List_parent &L, address_parent &P)
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
 
     if(first(L) != nil)
     {

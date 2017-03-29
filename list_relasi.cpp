@@ -2,11 +2,18 @@
 
 void createList(List_relasi &L)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
     first(L) = nil;
 }
 
 address_relasi alokasi(address_parent P, address_child C)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     address_relasi Q = new elmlist_relasi;
     child(Q) = C;
     parent(Q) = P;
@@ -15,10 +22,18 @@ address_relasi alokasi(address_parent P, address_child C)
 }
 void dealokasi(address_relasi &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     delete P;
 }
 void insertFirst(List_relasi &L, address_relasi P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if (first(L) == nil)
     {
         first(L) = P;
@@ -35,6 +50,10 @@ void insertFirst(List_relasi &L, address_relasi P)
 
 void insertLast(List_relasi &L, address_relasi P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if (first(L) == nil)
     {
         insertFirst(L,P);
@@ -55,6 +74,10 @@ void insertLast(List_relasi &L, address_relasi P)
 
 address_relasi findElm(List_relasi L, address_parent P, address_child C)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     address_relasi Q = first(L);
     while(Q != NULL)
     {
@@ -69,6 +92,10 @@ address_relasi findElm(List_relasi L, address_parent P, address_child C)
 
 void insertAfter(List_relasi L,address_relasi &Prec, address_relasi &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if(first(L) == nil)
     {
 
@@ -84,6 +111,10 @@ void insertAfter(List_relasi L,address_relasi &Prec, address_relasi &P)
 
 void deleteFirst(List_relasi &L, address_relasi &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if(first(L) != nil)
     {
         if(next(first(L)) == nil)
@@ -109,6 +140,10 @@ void deleteFirst(List_relasi &L, address_relasi &P)
 
 void deleteLast(List_relasi &L, address_relasi&P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if(first(L) != nil)
     {
         if(next(first(L)) == nil)
@@ -131,6 +166,10 @@ void deleteLast(List_relasi &L, address_relasi&P)
 
 void deleteAfter(List_relasi &L, address_relasi Prec, address_relasi &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if(first(L)!= nil)
     {
         if(next(P) == nil)
@@ -156,6 +195,10 @@ void deleteAfter(List_relasi &L, address_relasi Prec, address_relasi &P)
 
 void deletebyrelasi(List_relasi &L, address_relasi &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     address_relasi Q;
 
     if(first(L) != nil)
@@ -190,6 +233,10 @@ void deletebyrelasi(List_relasi &L, address_relasi &P)
 
 void printInfo(List_relasi L)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     address_relasi P = first(L);
     if(first(L) != nil)
     {
@@ -223,6 +270,10 @@ void printInfo(List_relasi L)
 
 address_relasi searchrelasiparent(List_relasi L, address_parent &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if(first(L) != nil)
     {
         address_relasi PR = first(L);
@@ -248,6 +299,10 @@ address_relasi searchrelasiparent(List_relasi L, address_parent &P)
 
 address_relasi searchrelasichild(List_relasi L, address_child P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     if(first(L) != nil)
     {
         address_relasi PR = first(L);
@@ -273,96 +328,89 @@ address_relasi searchrelasichild(List_relasi L, address_child P)
 
 address_relasi searchrelasi(List_relasi L, address_parent Q, address_child Z)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
+    address_relasi P = NULL;
+
     if(first(L) != nil)
     {
         address_relasi P = first(L);
-        while (next(P) != nil)
+        while(P != nil)
         {
-            if(parent(P) != Q && child(P) != Z)
-            {
-                P = next(P);
-            }
-        }
         if(child(P) == Z && parent(P) == Q)
         {
             return P;
         }
         else
         {
-            return nil;
+            P = next(P);
         }
+        }
+
     }
     else
     {
         return nil;
-        cout<<"List Kosong"<<endl;
     }
+
+    return P;
 }
 
 void deleterelasi(List_relasi &L, address_relasi &P)
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     child(P) = nil;
     parent(P) = nil;
     dealokasi(P);
 
 }
 
+address_relasi findmin(List_relasi &L)
+{
+/**
+    RIANDI KARTIKO           - 1301164300
+    NOT FIX YET
+**/
+
+    address_relasi P = first(L);
+    address_relasi P2 = P;
+
+ if(first(L) != nil){
+        if(info(parent(P)).id < info(parent(P2)).id)
+        {
+            P2 = P;
+        }
+ }
+return P2;
+}
+
 void sortrelasi(List_relasi &L)
 {
-    address_relasi P,P2,P3,P4;
+/**
+    RIANDI KARTIKO           - 1301164300
+    NOT FIX YET
+**/
 
-    if(first(L) != nil)
+    address_relasi P,R;
+    address_parent prt;
+    address_child cld;
+    List_relasi L2;
+
+    createList(L2);
+
+    while(first(L) != NULL)
     {
-        P = first(L);
-        if(next(first(L)) != nil)
-        {
-            if(info(parent(P)).id > info(next(parent(P))).id )
-            {
-                P2 = next(P);
-                P3 = P;
-                P = next(P);
-                deleteFirst(L,P3);
-                insertAfter(L,P2,P3);
-            }
-            else
-            {
-                while(next(P) != nil)
-                {
-                    if(info(parent(P)).id > info(next(parent(P))).id)
-                    {
-                        P2 = P;
-                        P4 = next(P);
-                        P = next(next(P));
-                        P3 = first(L);
-                        while (next(P3) != P)
-                        {
-                            P3 = next(P3);
-                        }
-                        deleteAfter(L,P3,P2);
-                        insertAfter(L,P4,P2);
-                    }
-                    else if(info(parent(P)).id < info(next(parent(P))).id)
-                    {
-                        P2 = next(P);
-                        P4 = P;
-                        P3 = first(L);
-
-                        P = next(next(P));
-
-                        while(next(P3) != P4)
-                        {
-                            P3 = next(P3);
-                        }
-                        deleteAfter(L,P3,P4);
-                        insertAfter(L,P2,P4);
-                    }
-                }
-            }
-        }
-    }else
-    {
-        cout<<"List Kosong"<<endl;
+        P = findmin(L);
+        prt = parent(P);
+        cld = child(P);
+        deletebyrelasi(L,P);
+        R = alokasi(prt,cld);
+        insertLast(L2,R);
     }
-
-
+    L=L2;
 }

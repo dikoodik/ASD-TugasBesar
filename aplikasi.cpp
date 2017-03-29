@@ -8,7 +8,6 @@
 using namespace std;
 
 address_child PC = nil;
-address_child Pcari;
 infotype_child XC;
 infotype_child x;
 List_child LC;
@@ -34,6 +33,9 @@ address_parent carip;
 
 void menupilihan()
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
 
     createList(LR);
     createList(LC);
@@ -114,7 +116,7 @@ void menupilihan()
             cout<<"MOHAMMAD IZZAULHAQ HUDA  - 1301160565"<<endl;
             break;
         default:
-            cout<<"wrong input"<<endl;
+            cout<<"Wrong Input"<<endl;
             break;
 
         }
@@ -128,18 +130,30 @@ void menupilihan()
 
 void insert_child()
 {
+/**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+**/
+
 
     stuff_child(&XC);
     insertngurut(LC,XC);
 }
 void view_child()
 {
+/**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+**/
+
     printInfo(LC);
 
 }
 
 void insert_parent()
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     stuff_parent(&XP);
     insertngurut(LP,XP);
 
@@ -147,11 +161,19 @@ void insert_parent()
 
 void view_parent()
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     printInfo(LP);
 }
 
 void search_parent()
 {
+    /**
+    MOHAMMAD IZZAULHAQ HUDA  - 1301160565
+    **/
+
     cout<<"Masukkan ID Bioskop: ";
     cin>>xx.id;
     printsatuan(LP,xx);
@@ -159,17 +181,25 @@ void search_parent()
 
 void search_child()
 {
-    cout<<"Masukkan ID Film: :";
+/**
+    RIFKI MIFATHUR SUTOMO    - 1301164225
+**/
+
+    cout<<"Masukkan ID Film: : ";
     cin>>x.id;
     printsatuan(LC,x);
 }
 
 void relasikan()
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     cout<<"Merelasikan Bioskop dengan Film"<<endl;
     cout<<"Masukkan ID Bioskop  : ";
     cin>>xx.id;
-    cout<<"Masukkan ID Film:    :";
+    cout<<"Masukkan ID Film:    : ";
     cin>>x.id;
     carip = findElm(LP,xx);
     caric = findElm(LC,x);
@@ -187,14 +217,22 @@ void relasikan()
 
 void view_relasi()
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     printInfo(LR);
 }
 
 void search_relasi()
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     cout<<"Masukkan ID Bioskop: ";
     cin>>xx.id;
-    cout<<"Masukkan ID Film: :";
+    cout<<"Masukkan ID Film: : ";
     cin>>x.id;
     carip = findElm(LP,xx);
     caric = findElm(LC,x);
@@ -204,6 +242,21 @@ void search_relasi()
         if(PR != nil)
         {
             cout<<"ID Bioskop: "<<info(carip).id<<" dengan ID Film : "<<info(caric).id<<" berelasi"<<endl;
+
+            cout<<"ID Studio        : "<<info(carip).id<<endl;
+            cout<<"Tipe Studio      : "<<info(carip).tipe_studio<<endl;
+            cout<<"Tipe Layar       : "<<info(carip).tipe_layar<<endl;
+            cout<<"Kapasitas        : "<<info(carip).jumlah_kursi<<endl;
+            cout<<"Kapasitas Tayang : "<<info(carip).jumlah_film<<endl;
+            cout<<endl;
+            cout<<"-----"<<endl;
+            cout<<endl;
+            cout<<"ID               : "<<info(caric).id<<endl;
+            cout<<"Judul            : "<<info(caric).nama_film<<endl;
+            cout<<"Durasi           : "<<info(caric).durasi_film<<endl;
+            cout<<"Harga            : "<<info(caric).harga_tiket<<endl;
+            cout<<"Kategori         : "<<info(caric).kategori<<endl;
+            cout<<"Jam              : "<<info(caric).jam_tayang<<endl;
         }
         else
         {
@@ -219,9 +272,13 @@ void search_relasi()
 
 void putus_relasi()
 {
-    cout<<"Masukkan ID Bioskop: ";
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
+    cout<<"Masukkan ID Bioskop  : ";
     cin>>xx.id;
-    cout<<"Masukkan ID Film: :";
+    cout<<"Masukkan ID Film:    : ";
     cin>>x.id;
     carip = findElm(LP,xx);
     caric = findElm(LC,x);
@@ -259,6 +316,10 @@ void putus_relasi()
 }
 void delete_parent()
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     cout<<"Masukkan ID Bioskop: ";
     cin>>xx.id;
     carip = findElm(LP,xx);
@@ -292,6 +353,10 @@ void delete_parent()
 
 void delete_child()
 {
+/**
+    RIANDI KARTIKO           - 1301164300
+**/
+
     cout<<"Masukkan ID Film: ";
     cin>>x.id;
     caric = findElm(LC,x);
